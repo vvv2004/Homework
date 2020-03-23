@@ -1,0 +1,68 @@
+import java.util.Scanner;
+
+public class HW1 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		
+		int n = scan.nextInt();
+		
+		float odd_min = Integer.MAX_VALUE;
+		float odd_max = Integer.MIN_VALUE;
+		float odd_sum = 0;
+		float even_min = Integer.MAX_VALUE;
+		float even_max = Integer.MIN_VALUE;
+		float even_sum = 0;
+		
+		
+		for(int pos = 1; pos <= n; pos++) {
+			float current = scan.nextFloat();
+			
+			if(pos % 2 != 0) {
+				if(current < odd_min) {
+					odd_min = current;
+				}else if(current > odd_max) {
+					odd_max = current;
+				}
+				if(odd_max == Integer.MIN_VALUE || odd_min == Integer.MAX_VALUE ) {
+					odd_max = odd_min;
+				}
+			odd_sum += current;
+			}
+			
+			if(pos % 2 == 0) {
+				if(current < even_min) {
+					even_min = current;
+				}else if(current > even_max) {
+					even_max = current;
+				}
+				if(even_max == Integer.MIN_VALUE || even_min == Integer.MAX_VALUE ) {
+					even_max = even_min;
+				}
+				even_sum += current;
+			}
+			
+		}
+		
+		System.out.println("OddSum = " + odd_sum);
+		
+		if(odd_min == Integer.MAX_VALUE && odd_max == Integer.MIN_VALUE) {
+			System.out.println("OddMin = No");
+			System.out.println("OddMax = No");
+		}else {
+			System.out.println("OddMin = " + odd_min);
+			System.out.println("OddMax = " + odd_max);
+		}
+		
+		System.out.println("EvenSum = " + even_sum);
+		
+		if(even_min == Integer.MAX_VALUE && even_max == Integer.MIN_VALUE) {
+			System.out.println("EvenMin = No");
+			System.out.println("EvenMax = No");
+		}else {
+			System.out.println("EvenMin = " + even_min);
+			System.out.println("EvenMax = " + even_max);
+		}
+    } 
+}
+
